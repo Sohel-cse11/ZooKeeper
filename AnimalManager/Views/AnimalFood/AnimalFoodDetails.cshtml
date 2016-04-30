@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AnimalManager.Models.FoodTotal>
+
+@{
+    ViewBag.Title = "AnimalFoodDetails";
+}
+
+<h2>AnimalFoodDetails</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Foodname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Foodprice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Foodquantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Totalprice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Foodname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Foodprice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Foodquantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Totalprice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
